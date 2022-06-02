@@ -6,31 +6,31 @@
     <body>
         <strong> 3d serpenski (7th program)</strong>
     <pre>
-        #include &ltstdlib.h>
-            #include <stdio.h>
-            #include <GL/glut.h>
-            typedef GLfloat point[3];
-            point v[]={{-1.0,-0.5,0.0},{1.0,-0.5,0.0},{0.0,1.0,0.0}, {0.0,0.0,1.0}};
-            GLfloat colors[4][3]={{1.0,0.0,0.0},{0.0,1.0,0.0},{0.0,0.0,1.0},{1.0,1.0,0.0}};
-            int n;
-            void triangle(point a,point b,point c)
-            {
-            glBegin(GL_POLYGON);
-            glVertex3fv(a);
-            glVertex3fv(b);
-            glVertex3fv(c);
-            glEnd();
-            }
-            
-            void tetra(point a,point b,point c,point d)
-            {
-            glColor3fv(colors[0]);
-            triangle(a,b,c);
-            glColor3fv(colors[1]);
-            triangle(a,c,d);
-            glColor3fv(colors[2]);
-            triangle(a,d,b);
-            glColor3fv(colors[3]);
+#include&ltstdlib.h>
+#include&ltstdio.h>
+#include&ltGL/glut.h>
+typedef GLfloat point[3];
+point v[]={{-1.0,-0.5,0.0},{1.0,-0.5,0.0},{0.0,1.0,0.0}, {0.0,0.0,1.0}};
+GLfloat colors[4][3]={{1.0,0.0,0.0},{0.0,1.0,0.0},{0.0,0.0,1.0},{1.0,1.0,0.0}};
+int n;
+void triangle(point a,point b,point c)
+{
+glBegin(GL_POLYGON);
+glVertex3fv(a);
+glVertex3fv(b);
+glVertex3fv(c);
+glEnd();
+}
+
+void tetra(point a,point b,point c,point d)
+{
+glColor3fv(colors[0]);
+triangle(a,b,c);
+glColor3fv(colors[1]);
+triangle(a,c,d);
+glColor3fv(colors[2]);
+triangle(a,d,b);
+glColor3fv(colors[3]);
 triangle(b,d,c);
 }
 
@@ -195,9 +195,9 @@ return 0;
 <strong> Triangle Rotation (2nd Program) </strong>
 <pre>
     #define BLACK 0
-    #include <stdio.h>
-    #include <math.h>
-    #include <GL/glut.h>
+    #include&ltstdio.h>
+    #include&ltmath.h>
+    #include&ltGL/glut.h>
     
     GLfloat house[3][3]={{100.0,250.0,175.0},{100.0,100.0,300.0},{1.0,1.0,1.0}};
     GLfloat rotatemat[3][3]={{0},{0},{0}};
