@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MAD 3</title>
+</head>
+<body>
+    <pre>
+        &lt?xml version="1.0" encoding="utf-8"?>
+&ltLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+    &ltTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Sign UP Activity"
+        android:textSize="30sp"
+        android:textAlignment="center"
+        android:textColor="@color/design_default_color_error"
+        />
+    &ltEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/uid"
+        android:hint="Enter User Name"
+        android:textSize="20sp"
+        android:textAlignment="center"
+        />
+    &ltEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/pwd"
+        android:hint="Enter Password"
+        android:textSize="20sp"
+        android:inputType="textPassword"
+        android:textAlignment="center"
+        />
+    &ltButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/signup"
+        android:text="SIGNUP"
+        android:onClick="signup"
+        />
+&lt/LinearLayout>
+<br>
+<br>
+<h1>signin.xml</h1><br>
+&lt?xml version="1.0" encoding="utf-8"?>
+&ltLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".Signin">
+    &ltTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="SIGN IN ACTIVITY"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        android:textColor="@color/design_default_color_error"
+        />
+    &ltEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/uid"
+        android:hint="Enter UID"
+        android:textAlignment="center"
+        android:textSize="20sp"
+        />
+
+    &ltEditText
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/pwd"
+        android:hint="Enter Password"
+        android:textAlignment="center"
+        android:inputType="textPassword"
+        android:textSize="20sp"
+        />
+    &ltButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/signin"
+        android:text="SIGN IN"
+        android:textAlignment="center"
+        android:onClick="signin"
+        />
+&lt/LinearLayout>
+<br>
+<br>
+<h1>success.xml</h1><br>
+&lt?xml version="1.0" encoding="utf-8"?>
+&ltLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".Success">
+    &ltTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="LOGIN SUCCESSFUL"
+        android:textSize="30sp"
+        android:textAlignment="center"
+        android:layout_gravity="center"
+        android:textColor="@color/design_default_color_primary_dark"
+        />
+&lt/LinearLayout>
+    </pre>
+    
+</body>
+</html>
