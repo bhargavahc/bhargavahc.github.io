@@ -1,3 +1,19 @@
+.order-section{
+	width: 100%;
+}
+
+#order{
+	text-align: center;
+}
+.form{
+	width: 200px;
+	margin: 0 auto;
+}
+.form input{
+	padding: 10px;
+	margin: 10px;
+	
+}
 body{
 	margin: 0px;
 
