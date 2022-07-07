@@ -93,13 +93,13 @@ void bezier(cp *ctrlPts, GLint nCtrlPts, GLint nBezCurvePts)
        }
 
        glColor3f(1, 1, 1);                 //Indian flag: white color code
-       for(int i=0;i< 8;i++)
+       for(int i=0;i&lt 8;i++)
        {
         glTranslatef(0, -0.8, 0);
         bezier(ctrlPts, nCtrlPts, nBezCurvePts);
  }
  glColor3f(19/255.0, 136/255.0, 8/255.0);          //Indian flag: green color code
- for(int i=0;i< 
+ for(int i=0;i< 8;i++){
         glTranslatef(0, -0.8, 0);
         bezier(ctrlPts, nCtrlPts, nBezCurvePts);
  }
