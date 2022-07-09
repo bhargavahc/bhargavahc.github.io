@@ -4,6 +4,196 @@
         <title>Programs</title>
     </head>
     <body>
+<h1>1st program</h1>
+<pre>
+    LEX PART
+%{
+#include "y.tab.h"
+#include &ltstdlib.h>
+extern int yylval;
+%}
+%%
+[0-9]+ {yylval=atoi(yytext);
+return NUM;}
+\n {return 0;}
+. {return yytext[0];}
+%%
+YACC PART
+%{
+#include&ltstdio.h>
+int valid=1;
+%}
+%token NUM
+%left '+' '-'
+%left '*' '/'
+%%
+Stmt:expr{if(valid)
+{
+printf("Result=%d\n",$$);}
+}
+expr:expr'+'expr {$$=$1+$3;}
+ |expr'-'expr {$$=$1-$3;}
+ |expr'*'expr {$$=$1*$3;}
+ |expr'/'expr {if($3==0){
+valid=0;printf("Divide by zero error\n");}
+else
+$$=$1/$3;}
+ |'('expr')' {$$=$2;}
+ |NUM {$$=$1;}
+ ;
+%%
+main()
+{
+printf("Enter arithmetic exression:\n");
+yyparse();
+if(valid==1)
+printf("Expression is valid\n");
+}
+int yyerror()
+{
+printf("Invalid expression\n");
+exit(0);
+}
+</pre>
+
+<pre>
+    <h1>2nd program</h1>
+    LEX PART
+%{
+#include "y.tab.h"
+%}
+%%
+a {return A;}
+b {return B;}
+\n {return 0;}
+. {return yytext[0];}
+%%
+YACC PART
+%{
+#include &ltstdio.h>
+int aCount=0,n;
+%}
+%token A
+%token B
+%%
+s : X B { if (aCount&ltn || aCount>n) 
+ {
+YYFAIL();
+}}
+X : X T | T
+T : A { aCount++;} 
+ ;
+%%
+int main()
+{ printf("Enter the value of n \n");
+scanf("%d",&n);
+printf("Enter the string\n");
+yyparse();
+printf("Valid string\n");
+}
+int YYFAIL()
+{
+printf("Invalid count of 'a'\n");
+exit(0);
+}
+int yyerror()
+{
+    printf("Invalid string\n");
+exit(0);
+}
+</pre>
+
+<pre>
+    <h1>5h Program</h1>
+    #include&ltstdio.h>
+        #include&ltstdlib.h>
+        #include&ltctype.h>
+        char op[2],arg1[5],arg2[5],result[5];
+        void main()
+        {
+        FILE *fp1,*fp2;
+        fp1=fopen("5input.txt","r");
+        fp2=fopen("5output.txt","w");
+        while(!feof(fp1))
+        {
+        fscanf(fp1,"%s%s%s%s",result,arg1,op,arg2);
+        if(strcmp(op,"+")==0)
+        {
+        fprintf(fp2,"\nMOV R0,%s",arg1);
+        fprintf(fp2,"\nADD R0,%s",arg2);
+        fprintf(fp2,"\nMOV %s,R0",result);
+        }if(strcmp(op,"*")==0)
+        {
+        fprintf(fp2,"\nMOV R0,%s",arg1);
+        fprintf(fp2,"\nMUL R0,%s",arg2);
+        fprintf(fp2,"\nMOV %s,R0",result);
+        }
+        if(strcmp(op,"-")==0)
+        {
+        fprintf(fp2,"\nMOV R0,%s",arg1);
+        fprintf(fp2,"\nSUB R0,%s",arg2);
+        fprintf(fp2,"\nMOV %s,R0",result);
+        }
+        if(strcmp(op,"/")==0)
+        {
+        fprintf(fp2,"\nMOV R0,%s",arg1);
+        fprintf(fp2,"\nDIV R0,%s",arg2);
+        fprintf(fp2,"\nMOV %s,R0",result);
+        }
+        if(strcmp(op,"=")==0)
+        {
+        fprintf(fp2,"\nMOV R0,%s",arg1);
+        fprintf(fp2,"\nMOV %s,R0\n",result);
+        } }
+        fclose(fp1);
+fclose(fp2);
+}
+</pre>
+<pre>
+    <h1>6b</h1>
+    LEX PART
+%{
+#include &ltstdio.h>
+#include "y.tab.h"
+%}
+%%
+int|char|bool|float|void|for|do|while|if|else|return|void|main {printf("keyword is 
+%s\n",yytext);return KEY;}
+[+|-|*|/|=|<|>] {printf("operator is %s\n",yytext);return OP;}
+[a-zA-Z][_a-zA-Z0-9]* {printf("identifier is %s\n",yytext);return ID;}
+. ;
+%%
+YACC PART
+%{
+#include &ltstdio.h>
+#include &ltstdlib.h>
+int id=0, key=0, op=0;
+%}
+%token ID KEY OP 
+%%
+input: ID input { id++; }
+| KEY input { key++; }
+| OP input {op++;}
+| ID { id++; }
+| KEY { key++; }
+| OP { op++;}
+;
+%%
+extern FILE *yyin;
+void main(int argc ,char** argv) 
+{
+yyin = fopen(argv[1],"r");
+yyparse();
+printf("Keywords = %d\nIdentifiers = %d\noperators = %d\n", key,id, op);
+}
+void yyerror()
+{
+printf("Not valid");
+}
+</pre>
+
+
+
         <strong>Cube Spin (3rd Program) </strong>
         <pre>
 #include&ltstdlib.h>
