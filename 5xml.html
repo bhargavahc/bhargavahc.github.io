@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Counter</title>
+    </head>
+    <body>
+        <pre>
+
+            &lt?xml version="1.0" encoding="utf-8"?>
+&ltLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    &ltTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Counter Application"
+        android:textAlignment="center"
+        android:textSize="30sp"
+        android:textColor="@color/purple_200"
+
+        />
+    &ltTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:textSize="20sp"
+        android:textAlignment="center"
+        android:textColor="#D6382C"
+        android:id="@+id/counter"
+        />
+    &ltButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/start"
+        android:text="START"
+        android:textAlignment="center"
+        android:onClick="startcounter"
+        />
+    &ltButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:id="@+id/stop"
+        android:text="STOP"
+        android:textAlignment="center"
+        android:onClick="stopcounter"
+        />
+
+
+        />
+
+&lt/LinearLayout>
+        </pre>
+    </body>
+</html>
