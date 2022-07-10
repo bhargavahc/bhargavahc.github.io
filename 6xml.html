@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <title>Parser</title>
+    </head>
+    <body>
+        <h1>xml and json file to be included in assests directory in the android view</h1>
+        <br>
+        <h1>xml file</h1>
+        <pre>
+
+            &lt?xml version="1.0"?>
+&ltrecords>
+    &ltplace>
+        &ltcityname>Mysore&lt/cityname>
+        &ltlat>96.95&lt/lat>
+        &ltlong>76.63&lt/long>
+        &lttemp>22&lt/temp>
+        &lthumidity>90%&lt/humidity>
+    &lt/place>
+    &ltplace>
+        &ltcityname>Bangalore&lt/cityname>
+        &tlat>96.98&lt/lat>
+        &ltlong>76.73&lt/long>
+        &lttemp>20&lt/temp>
+        &lthumidity>80%&lt/humidity>
+    &lt/place>
+&lt/records>
+        </pre>
+        <h1>json file</h1>
+        <pre>
+
+            [
+  {
+    "name" : "Mysore",
+    "lat" : "96.95",
+    "long" : "76.63",
+    "temp" : "22",
+    "humidity" : "90%"
+  },
+  {
+    "name" : "Bangalore",
+    "lat" : "96.97",
+    "long" : "76.76",
+    "temp" : "20",
+    "humidity" : "80%"
+  }
+
+]
+        </pre>
+        <h1>activity_main.xml</h1>
+        <pre>
+            &lt?xml version="1.0" encoding="utf-8"?>
+&ltLinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    &ltTextView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="XML and JSON Parser"
+        android:textSize="30sp"
+        android:textAlignment="center"
+        />
+    &ltButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="XMLParser"
+        android:text="XML Parser"
+        android:textAlignment="center"
+        />
+    &ltButton
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:onClick="JSONParser"
+        android:text="JSON Parser"
+        android:textAlignment="center"
+        />
+    &ltLinearLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_gravity="center">
+        &ltTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/resxml"
+            android:textSize="15sp"
+            android:textAlignment="center"
+            android:paddingLeft="10dp"
+            android:paddingRight="40dp"
+            />
+        &ltTextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:id="@+id/resjson"
+            android:textSize="15sp"
+            android:textAlignment="center"
+            android:paddingLeft="40dp"
+            />
+
+
+
+
+    &lt/LinearLayout>
+&lt/LinearLayout>
+
+        </pre>
+    </body>
+</html>
