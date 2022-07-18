@@ -4,7 +4,7 @@
         <title>Programs</title>
     </head>
     <body>
-<h1>1st program</h1>
+<h1>1st program- 1b</h1>
 <pre>
     LEX PART
 %{
@@ -55,7 +55,58 @@ printf("Invalid expression\n");
 exit(0);
 }
 </pre>
+<h1>1a program </h1>
+<br>
+<pre>
 
+    %{
+        #include&ltstdio.h>
+        #include&ltstring.h>
+        void fail();
+        int noOfOperands=0;
+        int noOfOperators=0;
+        char Operands[10][10];
+        char Operators[10][10];
+        int valid=0;
+        %}
+        %%
+        "(" valid++;
+        ")" {valid--;
+         if(valid&lt 0) fail(); }
+         "+"|"*" {strcpy(Operators[noOfOperators],yytext);noOfOperators++;}
+        [0-9]+ {strcpy(Operands[noOfOperands],yytext);noOfOperands++;}
+        [^+*]"("[^0-9] fail();
+        [+*]")" fail();
+        %%
+        int main()
+        {
+        int i=0;
+        printf("Enter a mathematical expression and press ctrl + d for output \n");
+        yylex();
+        printf("Number of  Operators are :%d\n Number of Operands are : %d\n",noOfOperators,noOfOperands);
+        if(valid==0 && (noOfOperands-noOfOperators)==1)
+        {
+        printf("Expression is valid\n");
+        printf("Operands are :\n");
+        for (i=0;i &lt noOfOperands;i++) printf("%s\n", Operands[i]);
+        printf("Operators are :\n");
+        for (i=0;i&lt noOfOperators;i++) printf("%s\n",Operators[i]);
+        }
+        else
+        {
+        printf("Invalid Expression\n");
+        }
+        return 0;
+        }
+        void fail()
+        {
+        printf("The Expression is invalid\n");
+        exit(0);
+        }
+        
+        
+</pre>
+<br>
 <pre>
     <h1>2nd program</h1>
     LEX PART
@@ -193,7 +244,35 @@ printf("Not valid");
 </pre>
 
 
+<h1>6a Program Comment lines</h1>
+<pre>
 
+
+    %{
+        #include&lt stdio.h>
+        int comcount=0;
+        %}
+        %s COMMENT
+        %%
+        "/*" {BEGIN (COMMENT);}
+        &ltCOMMENT>. {;}
+        &ltCOMMENT>"*/" {BEGIN(INITIAL);comcount++;}
+        "//".* {; comcount++;}
+        .|\n {fprintf(yyout,"%s",yytext);}
+        %%
+        void main()
+        {
+        yyin=fopen("input.c","r");
+        yyout=fopen("output.c","w");
+        yylex();
+        printf("No. of comment lines are: %d\n",comcount);
+        }
+        int yywrap()
+        {
+        return 1;
+        }
+</pre>
+<br>
         
 <br>
         
